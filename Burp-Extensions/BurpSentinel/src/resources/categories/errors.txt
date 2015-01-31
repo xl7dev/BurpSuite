@@ -1,0 +1,40 @@
+general error:
+&lt;/font&gt;&lt;font face="Arial" size=2&gt;
+A syntax error has occurred
+ASP.NET is configured to show verbose error messages
+ASP.NET_SessionId
+Active Server Pages error
+Can't connect to local
+Custom Error Message
+Disallowed Parent Path
+Error Diagnostic Information
+Error Message : Error loading required libraries.
+Error Report
+Error converting data type varchar to numeric
+Fatal error
+Incorrect syntax near
+Internal Server Error
+Invalid Path Character
+Invalid procedure call or argument
+Invision Power Board Database Error
+Microsoft VBScript compilation error
+Microsoft VBScript error
+PHP Error
+PHP Parse error
+PHP Warning
+Parent Directory
+Permission denied: 'GetObject'
+The error occurred in
+The script whose uid is
+Type mismatch
+Unclosed quotation mark before the character string
+Unterminated string constant
+Warning: Cannot modify header information - headers already sent
+Warning: Supplied argument is not a valid File-Handle resource in
+include_path
+invalid query
+is not allowed to access
+server object error
+Error Occurred While Processing Request
+RuntimeException
+Caused by:

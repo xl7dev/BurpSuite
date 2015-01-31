@@ -1,0 +1,32 @@
+v 1.2
+=========================================================================
+- Check for the libraries before loading
+- Check For Update button
+- Open Extension Home Page button
+
+v 1.1
+=========================================================================
+- Fixing .Net Pipe-delimited Ajax responses issues
+
+v 1.0
+=========================================================================
+- Works with the latest version of Burp Suite (tested on 1.5.21)
+- Automatic beautifying responses in all tabs
+- Ability of beautifying the headers
+- JSBeautifier Settings tab
+- Multiple bugs were fixed
+- Rhino library has been updated
+- Syntax highlighter library has been updated
+- Moved to GitHub
+- License changed to MIT
+
+v 0.1a
+=========================================================================
+- First version of extension with Java in GoogleCode
+- Automatic beautifying the responses in proxy
+- Manual beautifying the requests/responses
+- Supporting Burp suite scope
+- Mimicking exact behaviour of JSBeautifier.org website by using Rhino library
+- Supporting multiple file types (JS, CSS, HTML, and so on)
+- Detecting packers and obfuscators (based on JSBeautifier.org)
+- Syntax highlighter in the read-only editor by using Fifesoft RSyntaxTextArea library

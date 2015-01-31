@@ -1,0 +1,8 @@
+<?xml version="1.0" ?>
+<!-- Configuration of the Ant build system to generate a Jar file --> 
+<project name="jsbeautifier" default="CreateJar">
+	<property name="projectHome" location="." />
+	<target name="CreateJar" description="Create Jar file">
+		<jar destfile="${projectHome}/jsbeautifier.jar" basedir="${projectHome}/bin" />
+	</target>
+</project>

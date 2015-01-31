@@ -1,0 +1,320 @@
+- A2 authentication
+  - set session name
+  - identify session id in non-usual places
+  - session attacks
+  - 
+
+- integration in burp:
+  - button in FF "attack with sentinel" ?
+
+- Parameter Pollution
+  - add arbitrary param
+- json viewer
+- json browser
+  - for adding params
+  - test if its type is really JSON?
+
+- standalone sentinel version
+
+- lists:
+  ? should be possible to add decoded string for attack lists (xss)
+  - list entries are usually not encoded - need to encode if sent in GET?
+  - or not?
+
++ "add to sentinel" in panelright popup
+
+- attacklists "Test" and "Result" in panelright are "Null"
+- make decoder indicator better (no string)
+  - also in panelright (attack)
+- insert fucked up json delimiter on attackother };
+- export:
+  - copy paste csnc style
+  - interoperability style
+- allow multiple changeParam in HttpParam
+- remove changeparam from httpMessage.getReq()
+- create repeater implementation
+- remove old selections in PanelLeftPopup.decodeIt()
+- delete virtparam in panelleft
+
+Overall:
+- generate report
+- add tooltip to everything
+- attack variable names?
+- adding a message is a little bit strange because of onaddrow on topview
+- tab name should "blink" if sent to sentinel
+  - how to?
+- log window - popup on mouseover?
+- manually follow 302 with button
+
+Feature:
++ fast diff two responses from panelright (to check difference between SQLi)
+- copy-paste should be colorful! (and working...)
+- implement session manager for burp
+
+Bugfixes:
+- change background color of lines of header, bold interesting one's
+
+Todo CSNC:
+- search: auto scroll to match
+  - combobox?
+  - popupmenu
+- smart request copy
+  - copy only relevant parts of request/response (viewstate nooot), with highlights
+- session manager: make it global, add tab to request/reponse tab?
+- make session ui more usable
+  + remove a session
+  - session from burp
++ save/restore messages
+- color backgrounds of buttons according to vuln (red, yellow)
+? make go button in table
+
+Todo HOME:
+Main usability features:
+- beautify modifies source, breaks attacks
+- change index scroll thingies to line number, not offset whereever possible
+- reset message header info upon changing to request?
+- adjust syntax parser to highlight params
+- fix urldecode on rightpanel
+- implement other tooltips
+- make color choosable
+  - fix selection color
+- select part of response to indicate stuff
++ implement html beautifier
+- color attack backgrounds
+  - (new)
+  - tested          green
+  - vulnerable      yellow
+  - interesting     red
+- make tooltip urldecode / or opposite correctly
+- tooltips header/body
+- limit view to successful attacks only 
+
+
+attackother:
+  - move GET to post/nonurlencoded (optional)
+  - add GET to post/nonurlenced (optional)
+
+
+Sunday test 0:
+- cleanup attackresult / attackdata
+  - where to store the enum?
+  - isSuccess() to the enum?
+- upon remove() message, also remove bot shit
+- upon remove() message, do not adjust index #
+
+Monday test 0:
+- row width für attack/retlen: automatisch berechnen (minimal)
+- make load time relative to initial?
+- XSS vuln should only check in body, not in header? (Location: blablabla&a=<p>"
+- when resizing bot split pane - how keep it for next requests?
+- burp: on parameters, only on click will combobox be available - make this too?
+- request: for ?a&b&c, abc are not names, but values!
+
+Internal test 0:
+- move vulns to params, not messages (to cleanup hasVulns in panelleftui)
+- integrate scan dialog into ui, not seperate window
+- omfg, redo attack shizzle
+  - PanelLeftTableModel: createChangeParam should NOT change original message
+
+
+Big features:
+  + diff between 2 window - highlighted only?
+  - important param
+  - generate overall report
+  - only view tags/content/all
+  - if no answer on sending request, how to display?
+  - translate to new menu interface
+  - usually set parent in topui/botui for interface with gui - maybe global?
+  
+  
+Think:
+  - httpmessage: set parent in constructor?
+  - replace orig param, or add attack?
+  - if XSS0 ok and XSS1 ok, why still display XSS0?
+  - highlight ALL params in leftui?
+  - on redirectds - should request be initial request, or request of redir?
+
+
+Questions:
+  - invokelater for maingui?
+  - invokelater for sendtosentinel?
+
+--------------------------------------------------------------------------------
+
++ should be possible to store and restore messages
++ make "options" popup menu in panel right and panel left
++ do not fsck store attacktypes in HttpParam... !
++ add decoded param to list
++ why attackSelectedParam() in PanelLeftUi?!
++ panelleftui has 3 update methods...
+
++ panelleft: Send again should be asyncronous and not block burp!
++ make panelleft table items right-clickable
++ Make right clickable
++ Fix damn UI errors on send-to-sentinel
+
+Top View:
+? Delete multiple items
+  - no! breaks stuff!
+! update cookie stuff
+  - no! only in response
+
+
+ui bla:
+  + #0 broken
+  + no update vulnerable if not added from code
+  + jumping around when scanning
+
++ NONE <-> TEST,  NONE -> "-"
++ Send initial request, too!
++ lefttop: Rename URL to GET
++ attack sql: check ''' and "
+
++ send window is fugly
+  - cancel wont cancel, and user will start a new one - breaks things?
+  - make a real queue of requests to send in a seperate thread?
++ smart request copy (initial)
++ possible to remove messages in top
++ save sessions
+
+
++ Highlighting
+  + XSS indicator wont get highlighted in find dialog, because it already is
+  + selecting highlighted text does not highlight it again - difficult to copy paste
+  + fix highlight with markall
+  + fix highlight with the last char upon deleting not getting deselected
++ indicate if we have followed redirects or not
++ cancel send message window on timeout
++ info point will be displayed as VULN in top view
++ search in response
++ on sending several messages to sentinel, none is selected?
++ selecting multiple params will only attack the fucking first...
+  + clean attacks only at end, not between attacks
+  + only if XSS AND SQL are selected?
++ combobox session (top) is static size (from default) - should grow on bigger content (usernames)
++ rename "send to reapeater"
++ if many messages are on rightpanel, attacking more should scroll down (?)
++ if adding a message to sentinel, top view does select new message, but does not scroll to it
++ on XSS test: 2x same issue found
++ on diff (and also default): does not highlight XSS indicator
++ on beautify/diff: find str (u, d) does not work
++ change time format: <time> 9 jan 2013
+
+
++ cant copy/select text in response/request
+  + fix copy (mouse)
+  + fix copy (keyboard)
++ send initial request again to cross-check
++ diff between 2 window
++ search in response...
+  + link both window
++ fix checkboxes selection
++ 302 error: location: Result.htm?sap-params=c3Z5dmFsdWVnd
+
+
++ fix scan dialog
+  + canceling does not hide window
+  + remove dismiss
+
+/ check on restoring window sizes if they are still valid
++ implement comment
+
++ make all tables sortable
++ remove leftui header?
++ fix send-to-sentilel ui problem
++ make show request/response into one button?
+
++ change session of request
+  + setstyleddocument(default) on panelviewmessageui really necessary?
+  + old highlights persist, grrr
+  + set combobox to what the request is
++ fix highlighting of sessions in request somehow
++ make right mouse button context menu work
++ followredirect cant be disabled
++ make session select top default change, as it is confusing now
+
+  
++ follow 302
++ sort tables
++ syntax highlighting
++ fix if multiple scans / timeouts
++ highlighting:
+  + choose cool highlights, put em into a queue
+  + go through highlights
+  + implement link
+    + u/d
+	+ scrolling
++ send message again in popup is meh
++ show load time
++ fix nasty bugs
+  + send to sentinel ui -> only a little
+  + attack mutiliddea   -> updateUI correct?
+  
++ highlight stuff in request
+  + applyparam does reorder arguments - update changeparam/origparam
+    - not origparam?
+
++ fix row restore
++ re-implement path
+
++ Top/Bot split
++ Right/Left split
++ Top Table
+  + sane width
+  + store
+  + time added
+  + time modified
++ Left table
+  + sane width
+  + store
+  + fix store!
+  + select which attacks?
+  
++ Right table
+  + sane width
+  + store
+  + attack name
+  + result
+  
+- Response viewer
+  + Highlight findings
+  + implement re-issue
+  + sent to repeater
+  + identify 2nd order xss
+  + view real content length instead of size
+  
+- attackXss
+  + merge attackA/B/... functions a little
+  + display continous window on scan
+  + find if =" is in tag
+  
++ modelhttp
+  + implement post httpmessage model
+  + implement header/cookie httpmessage model
+  + fix www.dobin.ch/?asdf
+  + fix first param of post
+  + post: set content size
+  + splittet into request/response classes
+    
+And:
+  + show successful attacks in topui 
+  + show successful attacks in leftui
+  + implement successful attacks (table highlight in leftui?)
+  + implement something like isSuccess
+  + make lefttable more nice (expand)
+  + attack selection
+  + fuzzy dom hash
+ 
+Big features:
+  + session manager
+    + highlight session
+	+ session manager: name - value - translation
+   
+-----------
+    
+HTTP Status Code
+Response Length
+Response Body
+Location Header
+Set-Cookie Header
+Time Delays

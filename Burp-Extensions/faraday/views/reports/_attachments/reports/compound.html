@@ -1,0 +1,77 @@
+<div id="hosts-main">
+</div><!-- .hosts-main -->
+<script type="text/javascript" src="script/compound.js"></script>
+<script type="text/javascript">
+function get_report_div(workspace, view, design){
+	function load_all_hosts() {
+		var iurl	= "/" + workspace + "/_design/" + design + "/_view/byinterfacecount?group=true";
+		var hurl	= "/" + workspace + "/_design/" + design + "/_view/hosts";
+		var surl	= "/" + workspace + "/_design/" + design + "/_view/byservicecount?group=true";
+		
+		var hosts	= new Object();
+		var interfaces	= new Object();
+		var services	= new Object();
+
+		hosts		= get_obj(hurl);
+		interfaces	= get_obj(iurl, interfaces);
+		services	= get_obj(surl, services);
+		var table = "<div class='seccion2' id='hosts'><h2>Hosts report</h2>";
+		table += "<table id=\"hosts-"+workspace+"\" class=\"tablesorter\"><thead><tr>"+
+				"<th>Host</th>"+
+				"<th>Services</th>"+
+				"<th>Interfaces</th>"+
+				"<th>OS</th>"+
+				"<th>Owned</th>"+
+				"</tr></thead><tbody>";
+		$.each(hosts, function(k, v){
+			var hname = "";
+			if(!services.hasOwnProperty(k)) {
+				services[k] = 0;
+				hname = v.name;
+			} else {
+				hname = "<a href=\"host-"+k+"\" class=\"host\">"+v.name+"</a>";
+			}
+			if(!interfaces.hasOwnProperty(k)) interfaces[k] = 0;
+			table += "<tr id=\"host-"+k+"\">"+
+				"<td>"+hname+"</td>"+
+				"<td>"+services[k]+"</td>"+
+				"<td>"+interfaces[k]+"</td>"+
+				"<td>"+v.os+"</td>"+
+				"<td>"+v.owned+"</td></tr>";
+		});
+		table += "</tbody></table></div><a style='float:right;margin-right:20px;color:#FFF!important;padding:4px' class='btn btn-danger dropdown-toggle' onclick=\"document.body.scrollTop = document.documentElement.scrollTop = 0;\">Back To Top</a>";
+		return table;
+	}
+
+	function get_obj_filter(ws, design, view, key) {
+		var db = new CouchDB(ws);
+		var sview = design + "/" + view;
+		if(typeof key === 'undefined') {
+			var matches = db.view(sview);
+		} else if($.isArray(key)) {
+			var matches = db.view(sview, {keys: JSON.stringify(key)});
+		} else {
+			var matches = db.view(sview, {key: key});
+		}
+		return matches.rows;
+	}
+
+	function get_obj(ourl) {
+		var ls = {};
+		$.ajax({
+			dataType: "json",
+			url: ourl,
+			async: false,
+			success: function(data) {
+				$.each(data.rows, function(n, obj){
+					ls[obj.key] = obj.value;
+				});	
+			}
+		});
+		return ls;
+	}
+
+	var hosts = load_all_hosts();
+	return hosts;
+}
+</script>

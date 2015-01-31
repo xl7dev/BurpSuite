@@ -1,0 +1,13 @@
+<?xml version="1.0" ?>
+<!-- Configuration of the Ant build system to generate a Jar file --> 
+<project name="BurpExtender" default="CreateJar">
+	<path id="classpath">
+	        <fileset dir="lib" includes="*.jar"/>
+	</path>
+	
+	<target name="CreateJar" description="Create Jar file">
+        <jar jarfile="xssValidator.jar" basedir="../" includes="burp/*.class">
+			<zipgroupfileset dir="../../lib" includes="*.jar" excludes="burpsuite_pro_v*.jar"/>
+        </jar>
+  	</target>
+</project>

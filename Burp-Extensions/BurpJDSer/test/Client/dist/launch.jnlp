@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<jnlp href="launch.jnlp" spec="1.0+">
+    <information>
+        <title>GUIFormExamples</title>
+        <vendor>Sun Microsystems Inc</vendor>
+        <homepage href=""/>
+        <description>GUIFormExamples</description>
+        <description kind="short">GUIFormExamples</description>
+
+    </information>
+<update check="always"/>
+
+    <resources>
+<j2se java-vm-args="-Dhttp.proxyHost=127.0.0.1 -Dhttp.proxyPort=8888" version="1.6+"/>
+<jar href="GUIFormExamples.jar" main="true"/>
+
+
+    <jar href="lib/swing-layout-1.0.4.jar"/>
+</resources>
+    <application-desc main-class="examples.Search">
+
+    </application-desc>
+</jnlp>

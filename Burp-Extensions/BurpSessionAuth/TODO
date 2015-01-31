@@ -1,0 +1,30 @@
+* Multiple values per id
+
+* Generalize extension from recognition of user ids to object ids
+   (e.g. documents, downloads etc.). User should be able to define
+   multiple object groups. The active scanner module only exchanges
+   the found id by ids from the same group.
+
+* Case insensitive match of identifiers and values as option
+
+* RegExp matches of identifiers and values
+
+* Add blacklist of URLs for login requets
+   In login requests it is intended to submit an user id. No issue
+   should be reported in these cases.
+
+* Disable detection for particular parameter types
+   Some web applications store session data client-side, e.g. in
+   cookies, and transmit the user name in such requests. In such cases
+   the extensions is quite useless in current state because it would
+   report all requests.
+
+* Add some heuristics to identify typical parameter names
+   There are parameter names like uid, userId etc. which are typical
+   suspicious to vulnerailities targeted by this extension.
+
+* Detection and automatic addition of user ids
+   User identifiers and possibly values could be automatically
+   recognized by usage of heuristics and suggested to the user for
+   addition into the list.
+

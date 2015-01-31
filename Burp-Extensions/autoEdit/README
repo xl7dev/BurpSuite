@@ -1,0 +1,43 @@
+autoEdit
+========
+
+Extender for Burp Suite <http://portswigger.net/burp/> (only for Pro version).
+This extention permits to edit automatically specific parameters with a pre-defined method.
+
+Supported methods :
+- base64 encode/decode
+- url (simple & double) encode/decode
+- serialize_php
+  form expected : param=name1=value1;name2=value2;...
+  > param=a:2:{s:5:"name1";s:6:"value1";s:5:"name2";s:6:"value2";}
+- serialize_php_b64
+  form expected : param=name1=value1;name2=value2;...
+  > param=base64_encode(a:2:{s:5:"name1";s:6:"value1";s:5:"name2";s:6:"value2";})
+- XOR
+
+-- Burp Externder
+API download : <http://portswigger.net/burp/extender/api/burp_extender_api.zip>
+Java Doc : <http://portswigger.net/burp/extender/api/index.html>
+
+ToDo
+====
+
+Adding methods :
+- md5
+- sha1
+
+Features :
+- multi-methods selection
+- user-defined methods
+
+Compilation
+===========
+
+$ chmod +x make.sh
+$ ./make.sh
+[...]
+
+Usage
+=====
+
+You can directly use the JAR file autoEdit.jar in you Burp Suite.

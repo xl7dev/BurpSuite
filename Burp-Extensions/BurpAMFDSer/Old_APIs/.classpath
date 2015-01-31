@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/3"/>
+	<classpathentry kind="lib" path="lib/xstream-1.4.2.jar"/>
+	<classpathentry kind="lib" path="lib/blazeds-core-4.0.0.14931.jar" sourcepath="C:/Users/ktran/Documents/Code/blazeds-src-4.0.1.21287/modules/core"/>
+	<classpathentry kind="lib" path="C:/Users/ktran/Security/Tools/burpsuite_v1.4.01/blazeds-common-4.0.0.14931.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

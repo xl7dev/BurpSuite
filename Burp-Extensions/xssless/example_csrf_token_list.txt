@@ -1,0 +1,6 @@
+CSRFToken
+__VIEWSTATE
+csrf
+__RequestVerificationToken
+authenticity_token
+csrftoken

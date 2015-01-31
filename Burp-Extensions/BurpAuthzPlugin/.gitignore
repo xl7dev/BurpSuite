@@ -1,0 +1,5 @@
+lib/
+target/classes/
+target/maven-archiver/
+target/surefire/
+target/test-classes/
