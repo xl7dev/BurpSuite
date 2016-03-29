@@ -2,7 +2,8 @@
 
 此项目包含BurpSuite使用文档和一些扩展插件
 
-为什么要直接传doc文档而不是pdf呢，目的就是为了让大家更方便搜索里面的关键字，本着一颗开放的心。
-欢迎大家反馈意见和交流burpsuite技巧，让文档更丰富。
+预计近期BurpSuite文档重写，敬请期待。
 
 Author: 小乐天
+
+BurpSuite Issue and feedback --> QQ群:182714957
