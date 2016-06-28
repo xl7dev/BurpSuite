@@ -1,9 +1,9 @@
 # BurpSuite
 
-此项目包含BurpSuite使用文档和一些扩展插件
+BurpSuite using the document and some extensions
 
-预计近期BurpSuite文档重写，敬请期待。
+Author: xl7dev
 
-Author: 小乐天
+QQ Group:182714957
 
-BurpSuite Issue and feedback --> QQ群:182714957
+Email: root@safebuff.com
