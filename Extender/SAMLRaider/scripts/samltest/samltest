@@ -1,0 +1,19 @@
+#!/bin/bash
+
+PROXY="127.0.0.1:8080"
+
+PORT="23523"
+RESPONSE="./saml_response"
+
+echo "[*] Listening for SAML Response on port $PORT..."
+nc -w 1 -l -p "$PORT" \
+  | grep -o -E 'SAMLResponse=[^&]*' \
+  | cut -d = -f 2  \
+  | awk -niord '{printf RT?$0chr("0x"substr(RT,2)):$0}' RS=%.. \
+  | base64 -d \
+  | xmllint --format - \
+  && echo "[*] Got SAML Response." &
+
+echo "[*] Sending SAML Response..."
+curl -s --proxy "$PROXY" --data @"$RESPONSE" "http://localhost:${PORT}/" \
+  1>/dev/null

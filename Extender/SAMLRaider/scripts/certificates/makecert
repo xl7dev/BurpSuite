@@ -1,0 +1,45 @@
+#!/bin/bash
+
+KEYSIZE="2048"
+
+CACERT="ca.crt"
+CAKEY="ca.key"
+CASUBJECT="/CN=SAML Certificate Authority"
+
+CERT="saml.crt"
+KEY="saml.key"
+CSR="saml.csr"
+SUBJECT="/CN=saml.example.com"
+
+PKCS12="saml.p12"
+PKCS12PEM="saml.p12.pem"
+
+cleanup(){
+  for file in "$CACERT" "$CAKEY" "$CERT" "$KEY" "$CSR"
+  do
+    rm $file
+  done
+}
+
+# cleanup
+
+echo "[*] Create self signed certificate for $CASUBJECT"
+openssl req -x509 -subj "$CASUBJECT" -nodes -days 365 \
+  -newkey "rsa:$KEYSIZE" -keyout "$CAKEY" -out "$CACERT"
+
+echo "[*] Create CSR for $SUBJECT"
+openssl req -new -subj "$SUBJECT" -newkey "rsa:$KEYSIZE" -nodes \
+  -keyout "$KEY" -out "$CSR" -nodes
+
+echo "[*] Sign certificate"
+openssl x509 -req -in "$CSR" -CA "$CACERT" -CAkey "$CAKEY" \
+  -CAcreateserial -out "$CERT"
+
+echo "[*] Export PKCS12"
+
+openssl pkcs12 -export -in "$CERT" -inkey "$KEY" -nodes -out "$PKCS12" \
+  -name "SAML Certificate" -certfile "$CACERT" -passout "pass:"
+
+echo "[*] Convert PKCS12 to PEM"
+
+openssl pkcs12 -in "$PKCS12" -out "$PKCS12PEM" -nodes -passin "pass:"
