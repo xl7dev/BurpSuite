@@ -1,0 +1,791 @@
+
+Release 0.7.3 - May 7 2015
+--------------------------
+
+* Added documentation on :ref:`ewx_pandas` and :ref:`pandas_examples`.
+
+* Added support for ``with`` context manager.
+  Pull request `#239 <https://github.com/jmcnamara/XlsxWriter/pull/239>`_.
+
+
+Release 0.7.2 - March 29 2015
+-----------------------------
+
+* Added support for textboxes in worksheets. See :func:`insert_textbox()` and
+  :ref:`working_with_textboxes` for more details.
+  Feature request `#107 <https://github.com/jmcnamara/XlsxWriter/issues/107>`_.
+
+
+Release 0.7.1 - March 23 2015
+-----------------------------
+
+* Added gradient fills to chart objects such as the plot area of columns. See
+  :ref:`chart_formatting_gradient` and :ref:`ex_chart_gradient`.
+  Feature request `#228 <https://github.com/jmcnamara/XlsxWriter/issues/228>`_.
+
+
+Release 0.7.0 - March 21 2015
+-----------------------------
+
+* Added support for display units in chart axes. See :func:`set_x_axis()`.
+  Feature request `#185 <https://github.com/jmcnamara/XlsxWriter/issues/185>`_.
+
+* Added ``nan_inf_to_errors`` :func:`Workbook` constructor option to allow
+  mapping of Python `nan/inf` value to Excel error formulas in ``write()`` and
+  ``write_number()``.
+  Feature request `#150 <https://github.com/jmcnamara/XlsxWriter/issues/150>`_.
+
+
+Release 0.6.9 - March 19 2015
+-----------------------------
+
+* Added support for clustered category charts. See :ref:`ex_chart_clustered`
+  for details.
+  Feature request `#180 <https://github.com/jmcnamara/XlsxWriter/issues/180>`_.
+
+* Refactored the :ref:`format` and formatting documentation.
+
+Release 0.6.8 - March 17 2015
+-----------------------------
+
+* Added option to combine two different chart types. See the
+  :ref:`chart_combined_charts` section and :ref:`ex_chart_combined` and
+  :ref:`ex_chart_pareto` for more details.
+  Feature request `#72 <https://github.com/jmcnamara/XlsxWriter/issues/72>`_.
+
+
+Release 0.6.7 - March 1 2015
+----------------------------
+
+* Added option to add function value in worksheet :func:`add_table`.
+  Feature request `#216 <https://github.com/jmcnamara/XlsxWriter/issues/216>`_.
+
+* Fix for A1 row/col numbers below lower bound.
+  Issue `#212 <https://github.com/jmcnamara/XlsxWriter/issues/212>`_.
+
+
+Release 0.6.6 - January 16 2015
+-------------------------------
+
+* Fix for incorrect shebang line in `vba_extract.py` packaged in wheel.
+  Issue `#211 <https://github.com/jmcnamara/XlsxWriter/issues/211>`_.
+
+* Added docs and example for diagonal cell border.
+  See :ref:`ex_diagonal_border`.
+
+
+Release 0.6.5 - December 31 2014
+--------------------------------
+
+* Added worksheet quoting for chart names in lists.
+  Issue `#205 <https://github.com/jmcnamara/XlsxWriter/issues/205>`_.
+
+* Added docs on how to find and set VBA codenames.
+  Issue `#202 <https://github.com/jmcnamara/XlsxWriter/issues/202>`_.
+
+* Fix Python3 issue with unused charts.
+  Issue `#200 <https://github.com/jmcnamara/XlsxWriter/issues/200>`_.
+
+* Enabled warning for missing category is scatter chart.
+  Issue `#197 <https://github.com/jmcnamara/XlsxWriter/issues/197>`_.
+
+* Fix for upper chart style limit. Increased the chart style limit from
+  42 to the correct 48.
+  Issue `#192 <https://github.com/jmcnamara/XlsxWriter/issues/192>`_.
+
+* Raise warning if a chart is inserted more than once.
+  Issue `#184 <https://github.com/jmcnamara/XlsxWriter/issues/184>`_.
+
+
+Release 0.6.4 - November 15 2014
+--------------------------------
+
+* Fix for issue where fonts applied to data labels raised exception.
+  Issue `#179 <https://github.com/jmcnamara/XlsxWriter/issues/179>`_.
+
+* Added option to allow explicit text axis types for charts, similar to date
+  axes.
+  Feature request `#178 <https://github.com/jmcnamara/XlsxWriter/issues/178>`_.
+
+* Fix for issue where the bar/column chart gap and overlap weren't
+  applied to the secondary axis.
+  Issue `#177 <https://github.com/jmcnamara/XlsxWriter/issues/177>`_.
+
+
+Release 0.6.3 - November 6 2014
+-------------------------------
+
+* Added support for adding VBA macros to workbooks. See :ref:`macros`.
+  Feature request `#126 <https://github.com/jmcnamara/XlsxWriter/issues/126>`_.
+
+
+Release 0.6.2 - November 1 2014
+-------------------------------
+
+* Added chart axis line and fill properties.
+  Feature request `#88 <https://github.com/jmcnamara/XlsxWriter/issues/88>`_.
+
+
+Release 0.6.1 - October 29 2014
+-------------------------------
+
+* Added chart specific handling of data label positions since not all positions
+  are available for all chart types.
+  Issue `#170 <https://github.com/jmcnamara/XlsxWriter/issues/170>`_.
+
+* Added number formatting
+  (issue `#130 <https://github.com/jmcnamara/XlsxWriter/issues/130>`_),
+  font handling, separator and legend key for data labels.
+  See :ref:`chart_series_option_data_labels`
+
+* Fix for non-quoted worksheet names containing spaces and non-alphanumeric
+  characters.
+  Issue `#167 <https://github.com/jmcnamara/XlsxWriter/issues/167>`_.
+
+
+Release 0.6.0 - October 15 2014
+-------------------------------
+
+* Added option to add images to headers and footers. See
+  :ref:`ex_headers_footers`.
+  Feature request `#133 <https://github.com/jmcnamara/XlsxWriter/issues/133>`_.
+
+* Fixed issue where non 96dpi images weren't scaled properly in Excel.
+  Issue `#164 <https://github.com/jmcnamara/XlsxWriter/issues/164>`_.
+
+* Added option to not scale header/footer with page. See :func:`set_header`.
+  Feature request `#134 <https://github.com/jmcnamara/XlsxWriter/issues/134>`_.
+
+
+Release 0.5.9 - October 11 2014
+-------------------------------
+
+* Removed ``egg_base`` requirement from ``setup.cfg`` which was preventing
+  installation on Windows.
+  Issue `#162 <https://github.com/jmcnamara/XlsxWriter/issues/162>`_.
+
+* Fix for issue where X axis title formula was overwritten by the Y axis
+  title.
+  Issue `#161 <https://github.com/jmcnamara/XlsxWriter/issues/161>`_.
+
+
+Release 0.5.8 - September 28 2014
+---------------------------------
+
+* Added support for Doughnut charts.
+  Feature request `#157 <https://github.com/jmcnamara/XlsxWriter/issues/157>`_.
+
+* Added support for wheel packages.
+  Feature request `#156 <https://github.com/jmcnamara/XlsxWriter/issues/156>`_.
+
+* Made the exception handling in ``write()`` clearer for unsupported types so
+  that it raises a more accurate TypeError instead of a ValueError.
+  Issue `#153 <https://github.com/jmcnamara/XlsxWriter/issues/153>`_.
+
+
+Release 0.5.7 - August 13 2014
+------------------------------
+
+* Added support for :func:`insert_image` images from byte streams to allow
+  images from URLs and other sources.
+  Feature request `#118 <https://github.com/jmcnamara/XlsxWriter/issues/118>`_.
+
+* Added :func:`write_datetime` support for datetime.timedelta.
+  Feature request `#128 <https://github.com/jmcnamara/XlsxWriter/issues/128>`_.
+
+
+Release 0.5.6 - July 22 2014
+----------------------------
+
+* Fix for spurious exception message when :func:`close()` isn't used.
+  Issue `#131 <https://github.com/jmcnamara/XlsxWriter/issues/131>`_.
+
+* Fix for formula string values that look like numbers.
+  Issue `#122 <https://github.com/jmcnamara/XlsxWriter/issues/122>`_.
+
+* Clarify :func:`print_area()` documentation for complete row/column ranges.
+  Issue `#139 <https://github.com/jmcnamara/XlsxWriter/issues/139>`_.
+
+* Fix for unicode strings in data validation lists.
+  Issue `#135 <https://github.com/jmcnamara/XlsxWriter/issues/135>`_.
+
+
+Release 0.5.5 - May 6 2014
+--------------------------
+
+* Fix for incorrect chart offsets in :func:`insert_chart()` and
+  :func:`set_size()`.
+
+Release 0.5.4 - May 4 2014
+--------------------------
+
+* Added image positioning option to :func:`insert_image` to control how
+  images are moved in relation to surrounding cells.
+  Feature request `#117 <https://github.com/jmcnamara/XlsxWriter/issues/117>`_.
+
+* Fix for chart ``error_bar`` exceptions.
+  Issue `#115 <https://github.com/jmcnamara/XlsxWriter/issues/115>`_.
+
+* Added clearer reporting of nested exceptions in ``write()`` methods.
+  Issue `#108 <https://github.com/jmcnamara/XlsxWriter/issues/108>`_.
+
+* Added support for ``inside_base`` data label position in charts.
+
+Release 0.5.3 - February 20 2014
+--------------------------------
+
+* Added checks and warnings for data validation limits.
+  Issue `#89 <https://github.com/jmcnamara/XlsxWriter/issues/89>`_.
+
+* Added option to add hyperlinks to images. Thanks to Paul Tax.
+
+* Added Python 3 Http server example. Thanks to Krystian Rosinski.
+
+* Added :func:`set_calc_mode` method to control automatic calculation of
+  formulas when worksheet is opened. Thanks to Chris Tompkinson.
+
+* Added :func:`use_zip64` method to allow ZIP64 extensions when writing
+  very large files.
+
+* Fix to handle '0' and other number like strings as number formats.
+  Issue `#103 <https://github.com/jmcnamara/XlsxWriter/issues/103>`_.
+
+* Fix for missing images in ``in_memory`` mode.
+  Issue `#102 <https://github.com/jmcnamara/XlsxWriter/issues/102>`_.
+
+
+Release 0.5.2 - December 31 2013
+--------------------------------
+
+* Added date axis handling to charts. See :ref:`ex_chart_date_axis`.
+  Feature request `#73 <https://github.com/jmcnamara/XlsxWriter/issues/73>`_.
+
+* Added support for non-contiguous chart ranges.
+  Feature request `#44 <https://github.com/jmcnamara/XlsxWriter/issues/44>`_.
+
+* Fix for low byte and control characters in strings.
+  Issue `#86 <https://github.com/jmcnamara/XlsxWriter/issues/86>`_.
+
+* Fix for chart titles with exclamation mark.
+  Issue `#83 <https://github.com/jmcnamara/XlsxWriter/issues/83>`_.
+
+* Fix to remove duplicate :func:`set_column` entries.
+  Issue `#82 <https://github.com/jmcnamara/XlsxWriter/issues/82>`_.
+
+
+Release 0.5.1 - December 2 2013
+-------------------------------
+
+* Added interval unit option for category axes.
+  Feature request `#69 <https://github.com/jmcnamara/XlsxWriter/issues/69>`_.
+
+* Fix for axis name font rotation.
+
+* Fix for several minor issues with Pie chart legends.
+
+
+Release 0.5.0 - November 17 2013
+--------------------------------
+
+* Added :ref:`Chartsheets <Chartsheet>` to allow single worksheet charts.
+  Feature request `#10 <https://github.com/jmcnamara/XlsxWriter/issues/10>`_.
+
+
+Release 0.4.9 - November 17 2013
+--------------------------------
+
+* Added :ref:`chart object positioning and sizing <chart_layout>` to allow
+  positioning of plotarea, legend, title and axis names.
+  Feature request `#66 <https://github.com/jmcnamara/XlsxWriter/issues/66>`_.
+
+* Added :func:`set_title()` ``none`` option to turn off automatic titles.
+
+* Improved :func:`define_name()` name validation.
+
+* Fix to prevent modification of user parameters in
+  :func:`condtional_format()`.
+
+
+Release 0.4.8 - November 13 2013
+--------------------------------
+
+* Added ``in_memory`` :func:`Workbook` constructor option to allow XlsxWriter
+  to work on Google App Engine.
+  Feature request `#28 <https://github.com/jmcnamara/XlsxWriter/issues/28>`_.
+
+
+Release 0.4.7 - November 9 2013
+-------------------------------
+
+* Added fix for markers on non-marker scatter charts.
+  Issue `#62 <https://github.com/jmcnamara/XlsxWriter/issues/62>`_.
+
+* Added custom error bar option. Thanks to input from Alex Birmingham.
+
+* Changed Html docs to Bootstap theme.
+
+* Added :ref:`ex_merge_rich`.
+
+
+Release 0.4.6 - October 23 2013
+-------------------------------
+
+* Added font formatting to chart legends.
+
+
+Release 0.4.5 - October 21 2013
+-------------------------------
+
+* Added ``position_axis`` chart axis option.
+
+* Added optional list handling for chart names.
+
+
+Release 0.4.4 - October 16 2013
+-------------------------------
+
+* Documented use of :ref:`cell utility <cell_utility>` functions.
+
+* Fix for tables added in non-sequential order. Closes
+  `#51 <https://github.com/jmcnamara/XlsxWriter/issues/51>`_ reported by
+  calfzhou.
+
+
+Release 0.4.3 - September 12 2013
+---------------------------------
+
+* Fix for comments overlying columns with non-default width.
+  Issue `#45 <https://github.com/jmcnamara/XlsxWriter/issues/45>`_.
+
+
+Release 0.4.2 - August 30 2013
+------------------------------
+
+* Added a default blue underline hyperlink format for :func:`write_url()`.
+
+* Added :func:`Workbook` constructor options ``strings_to_formulas`` and
+  ``strings_to_urls`` to override default conversion of strings in write().
+
+
+Release 0.4.1 - August 28 2013
+------------------------------
+
+* Fix for charts and images that cross rows and columns that are hidden or
+  formatted but which don't have size changes. Issue
+  `#42 <https://github.com/jmcnamara/XlsxWriter/issues/42>`_ reported by
+  Kristian Stobbe.
+
+
+Release 0.4.0 - August 26 2013
+------------------------------
+
+* Added more generic support for JPEG files. Issue
+  `#40 <https://github.com/jmcnamara/XlsxWriter/issues/40>`_ reported by Simon
+  Breuss.
+
+* Fix for harmless Python 3 installation warning. Issue
+  `#41 <https://github.com/jmcnamara/XlsxWriter/issues/41>`_ reported by James
+  Reeves.
+
+
+Release 0.3.9 - August 24 2013
+------------------------------
+
+* Added fix for minor issue with :func:`insert_image` for images that extend
+  over several cells.
+
+* Added fix to ensure formula calculation on load regardless of Excel version.
+
+
+Release 0.3.8 - August 23 2013
+------------------------------
+
+* Added handling for Decimal(), Fraction() and other float types to the
+  :func:`write()` function.
+
+* Added Python 2.5 and Jython support. Thanks to Jonas Diemer for the patch.
+
+
+Release 0.3.7 - August 16 2013
+------------------------------
+
+* Added :func:`write_boolean()` function to write Excel boolean values. Feature request
+  `#37 <https://github.com/jmcnamara/XlsxWriter/issues/37>`_. Also added
+  explicit handling of Python bool values to the :func:`write()` function.
+
+* Changed :func:`Workbook` constructor option
+  ``strings_to_numbers`` default option to False so that there is no implicit
+  conversion of numbers in strings to numbers. The previous behaviour can be
+  obtained by setting the constructor option to True.
+  **Note** This is a backward incompatibility.
+
+
+Release 0.3.6 - July 26 2013
+-----------------------------
+
+* Simplified import based on a suggestion from John Yeung. Feature request
+  `#26 <https://github.com/jmcnamara/XlsxWriter/issues/26>`_.
+
+* Fix for NAN/INF converted to invalid numbers in write(). Issue
+  `#30 <https://github.com/jmcnamara/XlsxWriter/issues/30>`_.
+
+* Added :func:`Workbook` constructor option ``strings_to_numbers`` to
+  override default conversion of number strings to numbers in write().
+
+* Added :func:`Workbook` constructor option ``default_date_format`` to
+  allow a default date format string to be set. Feature request
+  `#5 <https://github.com/jmcnamara/XlsxWriter/issues/5>`_.
+
+
+Release 0.3.5 - June 28 2013
+-----------------------------
+
+* Reverted back to using codecs for file encoding (versions <= 0.3.1) to avoid
+  numerous UTF-8 issues in Python2/3.
+
+
+Release 0.3.4 - June 27 2013
+-----------------------------
+
+* Added Chart line smoothing option. Thanks to Dieter Vandenbussche.
+
+* Added Http Server example (:ref:`ex_http_server`). Thanks to
+  Alexander Afanasiev.
+
+* Fixed inaccurate column width calculation. Closes
+  `#27 <https://github.com/jmcnamara/XlsxWriter/issues/27>`_. Thanks to
+  John Yeung.
+
+* Added chart axis font rotation.
+
+
+Release 0.3.3 - June 10 2013
+-----------------------------
+
+* Minor packaging fixes
+  `#14 <https://github.com/jmcnamara/XlsxWriter/issues/14>`_ and
+  `#19 <https://github.com/jmcnamara/XlsxWriter/issues/19>`_.
+
+* Fixed explicit UTF-8 file encoding for Python 3.
+  PR from Alexandr Shadchin,
+  `#15 <https://github.com/jmcnamara/XlsxWriter/issues/15>`_.
+
+* Fixed invalid string formatting resulted in misleading stacktrace.
+  PR from Andrei Korostelev,
+  `#21 <https://github.com/jmcnamara/XlsxWriter/issues/21>`_.
+
+
+Release 0.3.2 - May 1 2013
+-----------------------------
+
+* Speed optimisations. The module is now 10-15% faster on average.
+
+
+Release 0.3.1 - April 27 2013
+-----------------------------
+
+* Added chart support. See the :ref:`chart_class`, :ref:`working_with_charts`
+  and :ref:`chart_examples`.
+
+
+Release 0.3.0 - April 7 2013
+-----------------------------
+
+* Added worksheet sparklines. See :ref:`sparklines`, :ref:`ex_sparklines1` and
+  :ref:`ex_sparklines2`
+
+
+Release 0.2.9 - April 7 2013
+-----------------------------
+
+* Added worksheet tables. See :ref:`tables` and :ref:`ex_tables`.
+
+* Tested with the new Python stable releases 2.7.4 and 3.3.1. All tests now
+  pass in the following versions:
+
+    * Python 2.6
+    * Python 2.7.2
+    * Python 2.7.3
+    * Python 2.7.4
+    * Python 3.1
+    * Python 3.2
+    * Python 3.3.0
+    * Python 3.3.1
+
+* There are now over 700 unit tests including more than 170 tests that
+  compare against the output of Excel.
+
+
+Release 0.2.8 - April 4 2013
+-----------------------------
+
+* Added worksheet outlines and grouping. See :ref:`outlines`.
+
+
+Release 0.2.7 - April 3 2013
+-----------------------------
+
+* Added :func:`set_default_row` method. See :ref:`ex_hide_row_col`.
+
+* Added hide_row_col.py, hide_sheet.py and text_indent.py examples.
+
+
+Release 0.2.6 - April 1 2013
+-----------------------------
+
+* Added :func:`freeze_panes` and :func:`split_panes` methods.
+  See :ref:`ex_panes` .
+
+* Added :func:`set_selection` method to select worksheet cell or range of
+  cells.
+
+
+Release 0.2.5 - April 1 2013
+-----------------------------
+
+* Added additional :func:`Workbook` parameters ``'tmpdir'`` and
+  ``'date_1904'``.
+
+
+Release 0.2.4 - March 31 2013
+-----------------------------
+
+* Added :func:`Workbook` ``'constant_memory'`` constructor property to
+  minimise memory usage when writing large files. See :ref:`memory_perf`
+  for more details.
+
+* Fixed bug with handling of UTF-8 strings in worksheet names (and probably
+  some other places as well). Reported by Josh English.
+
+* Fixed bug where temporary directory used to create xlsx files wasn't
+  cleaned up after program close.
+
+
+Release 0.2.3 - March 27 2013
+-----------------------------
+
+* Fixed bug that was killing performance for medium sized files. The module
+  is now 10x faster than previous versions. Reported by John Yeung.
+
+
+Release 0.2.2 - March 27 2013
+-----------------------------
+
+* Added worksheet data validation options. See the :func:`data_validation`
+  method, :ref:`working_with_data_validation` and :ref:`ex_data_valid`.
+
+* There are now over 600 unit tests including more than 130 tests that
+  compare against the output of Excel.
+
+
+Release 0.2.1 - March 25 2013
+-----------------------------
+
+* Added support for datetime.datetime, datetime.date and datetime.time
+  to the :func:`write_datetime` method. GitHub issue
+  `#3 <https://github.com/jmcnamara/XlsxWriter/issues/3>`_.
+  Thanks to Eduardo (eazb) and Josh English for the prompt.
+
+
+Release 0.2.0 - March 24 2013
+-----------------------------
+
+* Added conditional formatting. See the :func:`conditional_format` method,
+  :ref:`working_with_conditional_formats` and :ref:`ex_cond_format`.
+
+
+Release 0.1.9 - March 19 2013
+-----------------------------
+
+* Added Python 2.6 support. All tests now pass in the following versions:
+
+    * Python 2.6
+    * Python 2.7.2
+    * Python 2.7.3
+    * Python 3.1
+    * Python 3.2
+    * Python 3.3.0
+
+
+Release 0.1.8 - March 18 2013
+-----------------------------
+
+* Fixed Python 3 support.
+
+
+Release 0.1.7 - March 18 2013
+-----------------------------
+
+* Added the option to write cell comments to a worksheet. See
+  :func:`write_comment` and :ref:`cell_comments`.
+
+
+Release 0.1.6 - March 17 2013
+-----------------------------
+
+* Added :func:`insert_image` worksheet method to support inserting PNG and
+  JPEG images into a worksheet. See also the example program
+  :ref:`ex_insert_image`.
+
+* There are now over 500 unit tests including more than 100 tests that
+  compare against the output of Excel.
+
+
+Release 0.1.5 - March 10 2013
+-----------------------------
+
+* Added the :func:`write_rich_string` worksheet method to allow writing of
+  text with multiple formats to a cell. Also added example program:
+  :ref:`ex_rich_strings`.
+
+* Added the :func:`hide` worksheet method to hide worksheets.
+
+* Added the :func:`set_first_sheet()` worksheet method.
+
+
+Release 0.1.4 - March 8 2013
+----------------------------
+
+* Added the :func:`protect` worksheet method to allow protection of cells
+  from editing. Also added example program: :ref:`ex_protection`.
+
+
+Release 0.1.3 - March 7 2013
+----------------------------
+
+* Added worksheet methods:
+
+    * :func:`set_zoom` for setting worksheet zoom levels.
+    * :func:`right_to_left` for middle eastern versions of Excel.
+    * :func:`hide_zero` for hiding zero values in cells.
+    * :func:`set_tab_color` for setting the worksheet tab colour.
+
+
+Release 0.1.2 - March 6 2013
+----------------------------
+
+* Added autofilters. See :ref:`working_with_autofilters` for more details.
+
+* Added the :func:`write_row` and :func:`write_column` worksheet methods.
+
+
+Release 0.1.1 - March 3 2013
+----------------------------
+
+* Added the :func:`write_url` worksheet method for writing hyperlinks to
+  a worksheet.
+
+
+Release 0.1.0 - February 28 2013
+--------------------------------
+
+* Added the :func:`set_properties` workbook method for setting document
+  properties.
+
+* Added several new examples programs with documentation. The examples now
+  include:
+
+    * array_formula.py
+    * cell_indentation.py
+    * datetimes.py
+    * defined_name.py
+    * demo.py
+    * doc_properties.py
+    * headers_footers.py
+    * hello_world.py
+    * merge1.py
+    * tutorial1.py
+    * tutorial2.py
+    * tutorial3.py
+    * unicode_polish_utf8.py
+    * unicode_shift_jis.py
+
+Release 0.0.9 - February 27 2013
+--------------------------------
+
+* Added the :func:`define_name` method to create defined names and ranges
+  in a workbook or worksheet.
+
+* Added the :func:`worksheets` method as an accessor for the worksheets in a
+  workbook.
+
+
+Release 0.0.8 - February 26 2013
+--------------------------------
+
+* Added the :func:`merge_range` method to merge worksheet cells.
+
+
+Release 0.0.7 - February 25 2013
+--------------------------------
+
+* Added final page setup methods to complete the page setup section.
+
+    * :func:`print_area`
+    * :func:`fit_to_pages`
+    * :func:`set_start_page`
+    * :func:`set_print_scale`
+    * :func:`set_h_pagebreaks`
+    * :func:`set_v_pagebreaks`
+
+
+Release 0.0.6 - February 22 2013
+--------------------------------
+
+* Added page setup method.
+
+    * :func:`print_row_col_headers`
+
+
+Release 0.0.5 - February 21 2013
+--------------------------------
+
+* Added page setup methods.
+
+    * :func:`repeat_rows`
+    * :func:`repeat_columns`
+
+
+Release 0.0.4 - February 20 2013
+--------------------------------
+
+* Added Python 3 support with help from John Evans. Tested with:
+
+    * Python-2.7.2
+    * Python-2.7.3
+    * Python-3.2
+    * Python-3.3.0
+
+* Added page setup methods.
+
+    * :func:`center_horizontally`
+    * :func:`center_vertically`
+    * :func:`set_header`
+    * :func:`set_footer`
+    * :func:`hide_gridlines`
+
+
+Release 0.0.3 - February 19 2013
+--------------------------------
+
+* Added page setup method.
+
+    * :func:`set_margins`
+
+
+Release 0.0.2 - February 18 2013
+--------------------------------
+
+* Added page setup methods.
+
+    * :func:`set_landscape`
+    * :func:`set_portrait`
+    * :func:`set_page_view`
+    * :func:`set_paper`
+    * :func:`print_across`
+
+
+Release 0.0.1 - February 17 2013
+--------------------------------
+
+* First public release.
