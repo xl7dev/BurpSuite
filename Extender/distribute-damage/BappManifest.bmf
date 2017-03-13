@@ -1,0 +1,12 @@
+Uuid: 543ab7a08d954390bd1a5f4253d3763b
+ExtensionType: 1
+Name: Distribute Damage
+RepoName: distribute-damage
+ScreenVersion: 0.70
+SerialVersion: 3
+MinPlatformVersion: 0
+ProOnly: True
+Author: James 'albinowax' Kettle, PortSwigger Web Security
+ShortDescription: Evenly distributes scanner load across targets.
+EntryPoint: build/libs/distribute-damage-all.jar
+BuildCommand: gradle fatJar
