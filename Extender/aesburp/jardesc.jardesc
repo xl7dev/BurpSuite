@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="WINDOWS-1252" standalone="no"?>
+<jardesc>
+    <jar path="aesburp/dist/burpaesext.jar"/>
+    <options buildIfNeeded="true" compress="true" descriptionLocation="/aesburp/jardesc.jardesc" exportErrors="true" exportWarnings="true" includeDirectoryEntries="false" overwrite="false" saveDescription="true" storeRefactorings="false" useSourceFolders="false"/>
+    <storedRefactorings deprecationInfo="true" structuralOnly="false"/>
+    <selectedProjects/>
+    <manifest generateManifest="false" manifestLocation="/aesburp/MANIFEST.MF" manifestVersion="1.0" reuseManifest="false" saveManifest="true" usesManifest="true">
+        <sealing sealJar="false">
+            <packagesToSeal/>
+            <packagesToUnSeal/>
+        </sealing>
+    </manifest>
+    <selectedElements exportClassFiles="true" exportJavaFiles="true" exportOutputFolder="false">
+        <javaElement handleIdentifier="=aesburp/burp"/>
+        <file path="/aesburp/README.md"/>
+        <javaElement handleIdentifier="=aesburp/src"/>
+        <file path="/aesburp/MANIFEST.MF"/>
+    </selectedElements>
+</jardesc>
