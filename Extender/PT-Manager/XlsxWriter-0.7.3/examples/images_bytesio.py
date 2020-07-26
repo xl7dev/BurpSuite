@@ -25,7 +25,7 @@ worksheet = workbook.add_worksheet()
 
 # Read an image from a remote url.
 url = 'https://raw.githubusercontent.com/jmcnamara/XlsxWriter/' + \
-      'master/examples/logo.png'
+      'main/examples/logo.png'
 
 image_data = BytesIO(urlopen(url).read())
 

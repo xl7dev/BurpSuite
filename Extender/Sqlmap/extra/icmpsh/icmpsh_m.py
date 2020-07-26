@@ -38,7 +38,7 @@ def setNonBlocking(fd):
 
 def main(src, dst):
     if subprocess.mswindows:
-        sys.stderr.write('icmpsh master can only run on Posix systems\n')
+        sys.stderr.write('icmpsh main can only run on Posix systems\n')
         sys.exit(255)
 
     try:
@@ -58,7 +58,7 @@ def main(src, dst):
     try:
         sock = socket.socket(socket.AF_INET, socket.SOCK_RAW, socket.IPPROTO_ICMP)
     except socket.error:
-        sys.stderr.write('You need to run icmpsh master with administrator privileges\n')
+        sys.stderr.write('You need to run icmpsh main with administrator privileges\n')
         sys.exit(1)
 
     sock.setblocking(0)

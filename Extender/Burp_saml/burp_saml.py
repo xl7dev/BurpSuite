@@ -153,7 +153,7 @@ class SAMLInputTab(IMessageEditorTab):
         # self.extender is our only access back to burp
         self.extender = extender
 
-        # A master "editable" boolean burp sends to instruct if can be edited
+        # A main "editable" boolean burp sends to instruct if can be edited
         # e.g. proxy history messages = not editable
         self.editable = editable
 

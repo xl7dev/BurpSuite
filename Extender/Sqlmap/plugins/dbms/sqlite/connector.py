@@ -43,7 +43,7 @@ class Connector(GenericConnector):
             self.connector = self.__sqlite.connect(database=self.db, check_same_thread=False, timeout=conf.timeout)
 
             cursor = self.connector.cursor()
-            cursor.execute("SELECT * FROM sqlite_master")
+            cursor.execute("SELECT * FROM sqlite_main")
             cursor.close()
 
         except (self.__sqlite.DatabaseError, self.__sqlite.OperationalError), msg:
