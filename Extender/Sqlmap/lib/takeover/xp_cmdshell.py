@@ -40,7 +40,7 @@ class Xp_cmdshell:
     """
 
     def __init__(self):
-        self.xpCmdshellStr = "master..xp_cmdshell"
+        self.xpCmdshellStr = "main..xp_cmdshell"
 
     def _xpCmdshellCreate(self):
         cmd = ""
@@ -53,7 +53,7 @@ class Xp_cmdshell:
 
         self._randStr = randomStr(lowercase=True)
         self._xpCmdshellNew = "xp_%s" % randomStr(lowercase=True)
-        self.xpCmdshellStr = "master..%s" % self._xpCmdshellNew
+        self.xpCmdshellStr = "main..%s" % self._xpCmdshellNew
 
         cmd = getSQLSnippet(DBMS.MSSQL, "create_new_xp_cmdshell", RANDSTR=self._randStr, XP_CMDSHELL_NEW=self._xpCmdshellNew)
 

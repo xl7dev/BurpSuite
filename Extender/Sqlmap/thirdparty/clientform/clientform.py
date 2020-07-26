@@ -1746,7 +1746,7 @@ class ListControl(Control):
 
     # ListControls are built up by the parser from their component items by
     # creating one ListControl per item, consolidating them into a single
-    # master ListControl held by the HTMLForm:
+    # main ListControl held by the HTMLForm:
 
     # -User calls form.new_control(...)
     # -Form creates Control, and calls control.add_to_form(self).

@@ -140,15 +140,15 @@ class PtyProcess(signalable.Signalable, qt.QObject):
 
     def openPty(self):
         """"""
-        self.master_fd, self.slave_fd = openpty()
-        #print os.ttyname(self.master_fd)
-        #print os.ttyname(self.slave_fd)
-        fcntl(self.master_fd, F_SETFL, os.O_NDELAY)
-        return self.master_fd
+        self.main_fd, self.subordinate_fd = openpty()
+        #print os.ttyname(self.main_fd)
+        #print os.ttyname(self.subordinate_fd)
+        fcntl(self.main_fd, F_SETFL, os.O_NDELAY)
+        return self.main_fd
 
     def setWriteable(self, writeable):
-        """set the slave pty writable"""
-        ttyname = os.ttyname(self.slave_fd)
+        """set the subordinate pty writable"""
+        ttyname = os.ttyname(self.subordinate_fd)
         mode = os.stat(ttyname).st_mode
         if writeable:
             mode |= stat.S_IWGRP
@@ -160,14 +160,14 @@ class PtyProcess(signalable.Signalable, qt.QObject):
         """Informs the client program about the actual size of the window."""
         #print 'PTY set size', lines, columns
         self.wsize = (lines, columns)
-        if self.master_fd is None:
+        if self.main_fd is None:
             return
         #print 'PTY propagate size'
-        ioctl(self.master_fd, TIOCSWINSZ, pack('4H', lines, columns, 0, 0))
+        ioctl(self.main_fd, TIOCSWINSZ, pack('4H', lines, columns, 0, 0))
 
     def setupCommunication(self):
         """overriden from Process"""
-        self.out[0] = self.master_fd
+        self.out[0] = self.main_fd
         self.out[1] = os.dup(2) # Dummy
 
     def sendBytes(self, string):
@@ -179,7 +179,7 @@ class PtyProcess(signalable.Signalable, qt.QObject):
             written = 0
             while written < len(string):
                 try:
-                    written += os.write(self.master_fd, string[written:])
+                    written += os.write(self.main_fd, string[written:])
                 except OSError, ex:
                     if ex.errno in (errno.EAGAIN, errno.EINTR):
                         self.appendSendJob(string)
@@ -199,7 +199,7 @@ class PtyProcess(signalable.Signalable, qt.QObject):
         """qt slot"""
         while self._pending_send_jobs:
             job = self._pending_send_jobs[0]
-            job.start += os.write(self.master_fd, job.string[job.start:])
+            job.start += os.write(self.main_fd, job.string[job.start:])
             #if ( errno!=EAGAIN and errno!=EINTR )
             #   self._pending_send_jobs.remove(self._pending_send_jobs.begin())
             #   return
@@ -232,8 +232,8 @@ class PtyProcess(signalable.Signalable, qt.QObject):
     def donePty(self):
         """qt slot"""
 ##         if HAVE_UTEMPTER and self.addutmp:
-##             utmp = UtmpProcess(self.master_fd, '-d',
-##                                os.ttyname(self.slave_fd))
+##             utmp = UtmpProcess(self.main_fd, '-d',
+##                                os.ttyname(self.subordinate_fd))
 ##             utmp.start(RUN_BLOCK)
         # this is called when the shell process exits
         self.myemit('done', (self.exitStatus(),))
@@ -411,7 +411,7 @@ class PtyProcess(signalable.Signalable, qt.QObject):
         # drop privileges
         os.setgid(gid)
         os.setuid(uid)
-        tt = self.slave_fd
+        tt = self.subordinate_fd
         # reset signal handlers for child process
         for i in range(1, signal.NSIG):
             try:
@@ -426,7 +426,7 @@ class PtyProcess(signalable.Signalable, qt.QObject):
         # Especially the one used by Process.start to see if we are running ok.
         for i in range(soft):
             # FIXME: (result of merge) Check if (not) closing fd is OK)
-            if i != tt:# and i != self.master_fd):
+            if i != tt:# and i != self.main_fd):
                 try:
                     os.close(i)
                 except OSError:
@@ -458,7 +458,7 @@ class PtyProcess(signalable.Signalable, qt.QObject):
         tty_attrs[-1][VERASE] = 0177
         tcsetattr(0, TCSANOW, tty_attrs);
 
-        #os.close(self.master_fd)
+        #os.close(self.main_fd)
         # propagate emulation
         if self.term:
             os.environ['TERM'] = self.term

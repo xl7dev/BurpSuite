@@ -90,7 +90,7 @@ MYSQL_PRIVS = {
                     17: "create_tmp_table_priv",
                     18: "lock_tables_priv",
                     19: "execute_priv",
-                    20: "repl_slave_priv",
+                    20: "repl_subordinate_priv",
                     21: "repl_client_priv",
                     22: "create_view_priv",
                     23: "show_view_priv",

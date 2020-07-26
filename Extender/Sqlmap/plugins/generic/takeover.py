@@ -133,7 +133,7 @@ class Takeover(Abstraction, Metasploit, ICMPsh, Registry, Miscellaneous):
                 from impacket import ImpactPacket
             except ImportError:
                 errMsg = "sqlmap requires 'python-impacket' third-party library "
-                errMsg += "in order to run icmpsh master. You can get it at "
+                errMsg += "in order to run icmpsh main. You can get it at "
                 errMsg += "http://code.google.com/p/impacket/downloads/list"
                 raise SqlmapMissingDependence(errMsg)
 
@@ -210,7 +210,7 @@ class Takeover(Abstraction, Metasploit, ICMPsh, Registry, Miscellaneous):
                     logger.debug(debugMsg)
 
             elif tunnel == 2:
-                setupSuccess = self.uploadIcmpshSlave(web=web)
+                setupSuccess = self.uploadIcmpshSubordinate(web=web)
 
                 if setupSuccess is not True:
                     if Backend.isDbms(DBMS.MYSQL):
@@ -250,7 +250,7 @@ class Takeover(Abstraction, Metasploit, ICMPsh, Registry, Miscellaneous):
                         raise SqlmapFilePathException(msg)
 
                 elif tunnel == 2:
-                    setupSuccess = self.uploadIcmpshSlave(web=web)
+                    setupSuccess = self.uploadIcmpshSubordinate(web=web)
 
                     if setupSuccess is not True:
                         msg = "unable to mount the operating system takeover"

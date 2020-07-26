@@ -120,7 +120,7 @@ MAX_TECHNIQUES_PER_VALUE = 2
 MAX_BUFFERED_PARTIAL_UNION_LENGTH = 1024
 
 # Suffix used for naming meta databases in DBMS(es) without explicit database name
-METADB_SUFFIX = "_masterdb"
+METADB_SUFFIX = "_maindb"
 
 # Minimum time response set needed for time-comparison based on standard deviation
 MIN_TIME_RESPONSES = 30
@@ -169,11 +169,11 @@ PLATFORM = os.name
 PYVERSION = sys.version.split()[0]
 
 # DBMS system databases
-MSSQL_SYSTEM_DBS = ("Northwind", "master", "model", "msdb", "pubs", "tempdb")
+MSSQL_SYSTEM_DBS = ("Northwind", "main", "model", "msdb", "pubs", "tempdb")
 MYSQL_SYSTEM_DBS = ("information_schema", "mysql")                   # Before MySQL 5.0 only "mysql"
 PGSQL_SYSTEM_DBS = ("information_schema", "pg_catalog", "pg_toast")
 ORACLE_SYSTEM_DBS = ("CTXSYS", "DBSNMP", "DMSYS", "EXFSYS", "MDSYS", "OLAPSYS", "ORDSYS", "OUTLN", "SYS", "SYSAUX", "SYSMAN", "SYSTEM", "TSMSYS", "WMSYS", "XDB")                      # These are TABLESPACE_NAME
-SQLITE_SYSTEM_DBS = ("sqlite_master", "sqlite_temp_master")
+SQLITE_SYSTEM_DBS = ("sqlite_main", "sqlite_temp_main")
 ACCESS_SYSTEM_DBS = ("MSysAccessObjects", "MSysACEs", "MSysObjects", "MSysQueries", "MSysRelationships", "MSysAccessStorage",\
                         "MSysAccessXML", "MSysModules", "MSysModules2")
 FIREBIRD_SYSTEM_DBS = ("RDB$BACKUP_HISTORY", "RDB$CHARACTER_SETS", "RDB$CHECK_CONSTRAINTS", "RDB$COLLATIONS", "RDB$DATABASE",\
@@ -183,7 +183,7 @@ FIREBIRD_SYSTEM_DBS = ("RDB$BACKUP_HISTORY", "RDB$CHARACTER_SETS", "RDB$CHECK_CO
                         "RDB$RELATION_CONSTRAINTS", "RDB$RELATION_FIELDS", "RDB$ROLES", "RDB$SECURITY_CLASSES", "RDB$TRANSACTIONS", "RDB$TRIGGERS",\
                         "RDB$TRIGGER_MESSAGES", "RDB$TYPES", "RDB$USER_PRIVILEGES", "RDB$VIEW_RELATIONS")
 MAXDB_SYSTEM_DBS = ("SYSINFO", "DOMAIN")
-SYBASE_SYSTEM_DBS = ("master", "model", "sybsystemdb", "sybsystemprocs")
+SYBASE_SYSTEM_DBS = ("main", "model", "sybsystemdb", "sybsystemprocs")
 DB2_SYSTEM_DBS = ("NULLID", "SQLJ", "SYSCAT", "SYSFUN", "SYSIBM", "SYSIBMADM", "SYSIBMINTERNAL", "SYSIBMTS",\
                    "SYSPROC", "SYSPUBLIC", "SYSSTAT", "SYSTOOLS")
 HSQLDB_SYSTEM_DBS = ("INFORMATION_SCHEMA", "SYSTEM_LOB")

@@ -2693,7 +2693,7 @@ def _initialize(g):
             g[name] = getattr(_manager, name)
 _initialize(globals())
 
-# Prepare the master working set and make the ``require()`` API available
+# Prepare the main working set and make the ``require()`` API available
 _declare_state('object', working_set = WorkingSet())
 
 try:

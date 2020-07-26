@@ -43,7 +43,7 @@ class Session(signalable.Signalable, qt.QObject):
         super(Session, self).__init__()
         self.monitor_activity = False
         self._monitor_silence = False # see the property below
-        self.master_mode = False
+        self.main_mode = False
         # FIXME: using the indices here is propably very bad. We should use a
         # persistent reference instead.
         self.schema_no = 0
